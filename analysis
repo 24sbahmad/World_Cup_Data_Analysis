@@ -1,0 +1,10 @@
+WITH WorldCup_Games AS (
+    SELECT *
+    FROM results
+    WHERE tournament = 'FIFA World Cup'
+)
+SELECT *
+FROM WorldCup_Games
+WHERE home_score IS NOT NULL 
+    AND date >= '2000-01-01'
+ORDER BY date DESC;
