@@ -18,6 +18,9 @@ os.environ['KAGGLE_KEY'] = os.getenv('KAGGLE_KEY', 'a51ca52ea80432ba1530efce407c
 api = KaggleApi()
 api.authenticate()
 
+# --- The code below (starting from BASE_DIR) was generated with AI assistance. ---
+# The rest of the project, including the IPython notebook, was written by a human.
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 print("Downloading latest dataset from Kaggle...")

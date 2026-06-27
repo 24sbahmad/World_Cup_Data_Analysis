@@ -1,10 +1,17 @@
-WITH WorldCup_Games AS (
-    SELECT *
+WITH Average_Goals AS (
+    SELECT
+        CASE WHEN home_team = 'United States' THEN AVG(home_score) ELSE AVG(away_score) END AS avg_goals,
+        CASE WHEN away_team = 'United States' THEN AVG(away_score) ELSE AVG(home_score) END AS avg_goals_conceded,
+        strftime('%Y', date) AS year
     FROM results
     WHERE tournament = 'FIFA World Cup'
+        AND (home_team = 'United States' OR away_team = 'United States')
+    GROUP BY home_team, away_team, year
 )
-SELECT *
-FROM WorldCup_Games
-WHERE home_score IS NOT NULL 
-    AND date >= '2000-01-01'
-ORDER BY date DESC;
+SELECT 
+    year,
+    AVG(avg_goals) AS avg_goals,
+    AVG(avg_goals_conceded) AS avg_goals_conceded
+FROM Average_Goals
+GROUP BY year
+ORDER BY year DESC;
