@@ -19,7 +19,7 @@ api = KaggleApi()
 api.authenticate()
 
 # --- The code below (starting from BASE_DIR) was generated with AI assistance. ---
-# The rest of the project, including the IPython notebook, was written by a human.
+# The rest of the project, including the IPython notebook, was written by me.
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
